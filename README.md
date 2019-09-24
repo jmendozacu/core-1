@@ -9,6 +9,7 @@ composer require p-pcs/core:*
 bin/magento setup:upgrade
 rm -rf var/di var/generation generated/code
 bin/magento setup:di:compile
+bin/magento cache:enable
 rm -rf pub/static/*
 bin/magento setup:static-content:deploy \
 	--area adminhtml \
@@ -19,7 +20,6 @@ bin/magento setup:static-content:deploy \
 	--theme Smartwave/porto_child \
 	-f en_US
 bin/magento maintenance:disable
-bin/magento cache:enable
 ```
 
 ## How to upgrade
@@ -32,6 +32,7 @@ composer require p-pcs/core:*
 bin/magento setup:upgrade
 rm -rf var/di var/generation generated/code
 bin/magento setup:di:compile
+bin/magento cache:enable
 rm -rf pub/static/*
 bin/magento setup:static-content:deploy \
 	--area adminhtml \
@@ -42,5 +43,4 @@ bin/magento setup:static-content:deploy \
 	--theme Smartwave/porto_child \
 	-f en_US
 bin/magento maintenance:disable
-bin/magento cache:enable
 ```
