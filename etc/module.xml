@@ -5,6 +5,7 @@
 >
 	<module name='PPCs_Core' setup_version='0.0.1'>
 		<sequence>
+			<module name='Amazon_Payment'/>
 			<module name='Magento_Braintree'/>
 		</sequence>
 	</module>
