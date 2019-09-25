@@ -7,6 +7,7 @@
 		<sequence>
 			<module name='Amazon_Payment'/>
 			<module name='Magento_Braintree'/>
+			<module name='Magento_Checkout'/>
 		</sequence>
 	</module>
 </config>
