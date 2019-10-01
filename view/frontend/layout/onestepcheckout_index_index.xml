@@ -1,0 +1,14 @@
+<?xml version='1.0'?>
+<page
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xsi:noNamespaceSchemaLocation='urn:magento:framework:View/Layout/etc/page_configuration.xsd'
+>
+	<body>
+		<referenceBlock name='authentication-popup' remove='true'/>
+<!-- 2019-10-01
+It solves the issue: "«Cannot read property 'getElementsByTagName' of null» / «ab is null»
+in static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js":
+https://github.com/p-pcs/core/issues/9 -->
+		<referenceBlock name='minicart' remove='true'/>
+	</body>	
+</page>
