@@ -25,5 +25,3 @@ final class Grid {
 		}
 	}
 }
-
-
