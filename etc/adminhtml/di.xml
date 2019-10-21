@@ -7,7 +7,9 @@
 1) "Remove the «Websites» column from the Iksanika's Stock Inventory Manager's grid":
 https://github.com/p-pcs/core/issues/12
 2) "Remove the «Visibility» column from the Iksanika's Stock Inventory Manager's grid":
-https://github.com/p-pcs/core/issues/13 -->
+https://github.com/p-pcs/core/issues/13
+3) "Remove the «Type» column from the Iksanika's Stock Inventory Manager's grid":
+https://github.com/p-pcs/core/issues/14 -->
 	<type name='Iksanika\Stockmanage\Block\Adminhtml\Product\Grid'>
 		<plugin
 			name='PPCs\Core\Plugin\Iksanika\Stockmanage\Block\Adminhtml\Product\Grid'
