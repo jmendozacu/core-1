@@ -11,7 +11,9 @@ https://github.com/p-pcs/core/issues/13
 3) "Remove the «Type» column from the Iksanika's Stock Inventory Manager's grid":
 https://github.com/p-pcs/core/issues/14
 4) "Make the «Cost» and «Price» columns of the the Iksanika's Stock Inventory Manager's grid editable":
-https://github.com/p-pcs/core/issues/17 -->
+https://github.com/p-pcs/core/issues/17
+5) "The «Brand» column of the Iksanika's Stock Inventory Manager's grid
+does not show values for some products on the live website": https://github.com/p-pcs/core/issues/18 -->
 	<type name='Iksanika\Stockmanage\Block\Adminhtml\Product\Grid'>
 		<plugin
 			name='PPCs\Core\Plugin\Iksanika\Stockmanage\Block\Adminhtml\Product\Grid'

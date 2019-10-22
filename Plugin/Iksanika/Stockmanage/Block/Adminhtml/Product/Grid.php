@@ -2,7 +2,7 @@
 namespace PPCs\Core\Plugin\Iksanika\Stockmanage\Block\Adminhtml\Product;
 use Iksanika\Stockmanage\Block\Adminhtml\Product\Grid as Sb;
 use Iksanika\Stockmanage\Block\Widget\Grid\Column\Renderer\Number;
-use Magento\Framework\Event\Observer as Ob;
+use Magento\Catalog\Model\ResourceModel\Product\Collection as C;
 // 2019-10-22
 final class Grid {
 	/**
@@ -52,4 +52,16 @@ final class Grid {
 			$f($id, $data);
 		}
 	}
+
+	/**
+	 * 2019-10-23
+	 * "The «Brand» column of the Iksanika's Stock Inventory Manager's grid
+	 * does not show values for some products on the live website":
+	 * https://github.com/p-pcs/core/issues/18
+	 * @see \Iksanika\Stockmanage\Block\Adminhtml\Product\Grid::_prepareCollection()
+	 * @see \Magento\Backend\Block\Widget\Grid\Extended::setCollection()
+	 * @param Sb $sb
+	 * @param C $c
+	 */
+	function beforeSetCollection(Sb $sb, C $c) {$c->addAttributeToSelect('brand');}
 }
