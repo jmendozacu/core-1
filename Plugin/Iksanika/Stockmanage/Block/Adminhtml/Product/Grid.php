@@ -20,7 +20,15 @@ final class Grid {
 	 * @param array(string => mixed)|\Magento\Framework\DataObject $data
 	 */
 	function aroundAddColumn(Sb $sb, \Closure $f, $id, $data) {
-		if (!in_array($id, ['type', 'visibility', 'websites'])) {
+		if (!in_array($id, ['visibility', 'websites'])) {
+			if ('type' === $id) {
+				list($id, $data) = ['brand', [
+					'header' => 'Brand'
+					,'index' => 'brand'
+					,'options' => df_product_att_options_m('brand')
+					,'type' => 'options'
+				]];
+			}
 			$f($id, $data);
 		}
 	}
