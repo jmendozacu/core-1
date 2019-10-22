@@ -9,11 +9,31 @@ https://github.com/p-pcs/core/issues/12
 2) "Remove the «Visibility» column from the Iksanika's Stock Inventory Manager's grid":
 https://github.com/p-pcs/core/issues/13
 3) "Remove the «Type» column from the Iksanika's Stock Inventory Manager's grid":
-https://github.com/p-pcs/core/issues/14 -->
+https://github.com/p-pcs/core/issues/14
+4) "Make the «Cost» and «Price» columns of the the Iksanika's Stock Inventory Manager's grid editable":
+https://github.com/p-pcs/core/issues/17 -->
 	<type name='Iksanika\Stockmanage\Block\Adminhtml\Product\Grid'>
 		<plugin
 			name='PPCs\Core\Plugin\Iksanika\Stockmanage\Block\Adminhtml\Product\Grid'
 			type='PPCs\Core\Plugin\Iksanika\Stockmanage\Block\Adminhtml\Product\Grid'
+		/>
+	</type>
+<!-- 2019-10-22
+"Make the «Cost» and «Price» columns of the the Iksanika's Stock Inventory Manager's grid editable":
+https://github.com/p-pcs/core/issues/17 -->
+	<type name='Iksanika\Stockmanage\Controller\Adminhtml\Product\MassUpdateProducts'>
+		<plugin
+			name='PPCs\Core\Plugin\Iksanika\Stockmanage\Controller\Adminhtml\Product\MassUpdateProducts'
+			type='PPCs\Core\Plugin\Iksanika\Stockmanage\Controller\Adminhtml\Product\MassUpdateProducts'
+		/>
+	</type>
+<!-- 2019-10-22
+"Make the «Cost» and «Price» columns of the the Iksanika's Stock Inventory Manager's grid editable":
+https://github.com/p-pcs/core/issues/17 -->
+	<type name='Magento\Backend\Block\Widget\Grid\Massaction\Extended'>
+		<plugin
+			name='PPCs\Core\Plugin\Backend\Block\Widget\Grid\Massaction\Extended'
+			type='PPCs\Core\Plugin\Backend\Block\Widget\Grid\Massaction\Extended'
 		/>
 	</type>
 </config>

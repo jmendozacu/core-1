@@ -1,6 +1,7 @@
 <?php
 namespace PPCs\Core\Plugin\Iksanika\Stockmanage\Block\Adminhtml\Product;
 use Iksanika\Stockmanage\Block\Adminhtml\Product\Grid as Sb;
+use Iksanika\Stockmanage\Block\Widget\Grid\Column\Renderer\Number;
 use Magento\Framework\Event\Observer as Ob;
 // 2019-10-22
 final class Grid {
@@ -22,7 +23,16 @@ final class Grid {
 	function aroundAddColumn(Sb $sb, \Closure $f, $id, $data) {
 		if (!in_array($id, ['visibility', 'websites'])) {
 			if ('price' === $id) {
-				$f('cost', [
+				/**
+				 * 2019-10-22
+				 * "Make the «Cost» and «Price» columns
+				 * of the the Iksanika's Stock Inventory Manager's grid editable":
+				 * https://github.com/p-pcs/core/issues/17
+				 */
+				/** @var array(string => string) $pd */
+				$pd = ['class' => 'input-text admin__control-text', 'renderer' => Number::class];
+				$data = $pd + $data;
+				$f('cost', $pd + [
 					'column_css_class' => 'col-price'
 					,'currency_code' => df_currency_base_c(df_request('store', 0))
 					,'header' => 'Cost'
