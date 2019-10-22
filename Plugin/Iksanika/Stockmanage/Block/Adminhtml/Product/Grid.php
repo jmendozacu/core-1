@@ -63,5 +63,5 @@ final class Grid {
 	 * @param Sb $sb
 	 * @param C $c
 	 */
-	function beforeSetCollection(Sb $sb, C $c) {$c->addAttributeToSelect('brand');}
+	function beforeSetCollection(Sb $sb, C $c) {$c->addAttributeToSelect(['brand', 'cost']);}
 }
