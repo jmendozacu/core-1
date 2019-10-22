@@ -21,7 +21,17 @@ final class Grid {
 	 */
 	function aroundAddColumn(Sb $sb, \Closure $f, $id, $data) {
 		if (!in_array($id, ['visibility', 'websites'])) {
-			if ('type' === $id) {
+			if ('price' === $id) {
+				$f('cost', [
+					'column_css_class' => 'col-price'
+					,'currency_code' => df_currency_base_c(df_request('store', 0))
+					,'header' => 'Cost'
+					,'header_css_class' => 'col-price'
+					,'index' => 'cost'
+					,'type' => 'price'
+				]);
+			}
+			else if ('type' === $id) {
 				list($id, $data) = ['brand', [
 					'header' => 'Brand'
 					,'index' => 'brand'
