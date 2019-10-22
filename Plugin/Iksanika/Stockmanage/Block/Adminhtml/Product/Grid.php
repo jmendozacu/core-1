@@ -23,12 +23,10 @@ final class Grid {
 	function aroundAddColumn(Sb $sb, \Closure $f, $id, $data) {
 		if (!in_array($id, ['visibility', 'websites'])) {
 			if ('price' === $id) {
-				/**
-				 * 2019-10-22
-				 * "Make the «Cost» and «Price» columns
-				 * of the the Iksanika's Stock Inventory Manager's grid editable":
-				 * https://github.com/p-pcs/core/issues/17
-				 */
+				// 2019-10-22
+				// "Make the «Cost» and «Price» columns
+				// of the the Iksanika's Stock Inventory Manager's grid editable":
+				// https://github.com/p-pcs/core/issues/17
 				/** @var array(string => string) $pd */
 				$pd = ['class' => 'input-text admin__control-text', 'renderer' => Number::class];
 				$data = $pd + $data;
@@ -50,18 +48,28 @@ final class Grid {
 				]];
 			}
 			$f($id, $data);
+			if ('sku' === $id) {
+				// 2019-10-23
+				// "Add the «Vendor SKU/EAN» column from the Iksanika's Stock Inventory Manager's grid":
+				// https://github.com/p-pcs/core/issues/20
+				$f('vendor_sku', ['header' => 'Vendor SKU/EAN', 'index' => 'vendor_sku']);
+			}
 		}
 	}
 
 	/**
 	 * 2019-10-23
-	 * "The «Brand» column of the Iksanika's Stock Inventory Manager's grid
+	 * 1) "The «Brand» column of the Iksanika's Stock Inventory Manager's grid
 	 * does not show values for some products on the live website":
 	 * https://github.com/p-pcs/core/issues/18
+	 * 2) "The «Cost» column of the Iksanika's Stock Inventory Manager's grid
+	 * does not show values for some products": https://github.com/p-pcs/core/issues/19
+	 * 3) "Add the «Vendor SKU/EAN» column from the Iksanika's Stock Inventory Manager's grid":
+	 * https://github.com/p-pcs/core/issues/20
 	 * @see \Iksanika\Stockmanage\Block\Adminhtml\Product\Grid::_prepareCollection()
 	 * @see \Magento\Backend\Block\Widget\Grid\Extended::setCollection()
 	 * @param Sb $sb
 	 * @param C $c
 	 */
-	function beforeSetCollection(Sb $sb, C $c) {$c->addAttributeToSelect(['brand', 'cost']);}
+	function beforeSetCollection(Sb $sb, C $c) {$c->addAttributeToSelect(['brand', 'cost', 'vendor_sku']);}
 }
