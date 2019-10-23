@@ -42,4 +42,13 @@ https://github.com/p-pcs/core/issues/17 -->
 			type='PPCs\Core\Plugin\Backend\Block\Widget\Grid\Massaction\Extended'
 		/>
 	</type>
+<!-- 2019-10-23
+"Make the access to the Iksanika's Stock Inventory Manager module controllable per a role":
+https://github.com/p-pcs/core/issues/21 -->
+	<type name='Magento\Catalog\Controller\Adminhtml\Product'>
+		<plugin
+			name='PPCs\Core\Plugin\Catalog\Controller\Adminhtml\Product'
+			type='PPCs\Core\Plugin\Catalog\Controller\Adminhtml\Product'
+		/>
+	</type>
 </config>
