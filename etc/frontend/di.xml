@@ -3,6 +3,29 @@
 	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
 	xsi:noNamespaceSchemaLocation='urn:magento:framework:ObjectManager/etc/config.xsd'
 >
+<!-- 2019-11-04
+1) «No such entity with customerId = ...»: https://github.com/p-pcs/core/issues/27 
+2) We really need it, the plugin for Magento\Quote\Model\QuoteRepository (see below) is not enough. -->
+	<type name='Amazon\Core\Helper\CategoryExclusion'>
+		<plugin
+			name='PPCs\Core\Plugin\Amazon\Core\Helper\CategoryExclusion'
+			type='PPCs\Core\Plugin\Amazon\Core\Helper\CategoryExclusion'
+		/>
+	</type>
+<!-- 2019-11-03 «No such entity with customerId = ...»: https://github.com/p-pcs/core/issues/27 -->
+	<type name='Magento\Checkout\Controller\Onepage\Success'>
+		<plugin
+			name='PPCs\Core\Plugin\Checkout\Controller\Onepage\Success'
+			type='PPCs\Core\Plugin\Checkout\Controller\Onepage\Success'
+		/>
+	</type>
+<!-- 2019-11-04 «No such entity with customerId = ...»: https://github.com/p-pcs/core/issues/27 -->
+	<type name='Magento\Quote\Model\QuoteRepository'>
+		<plugin
+			name='PPCs\Core\Plugin\Quote\Model\QuoteRepository'
+			type='PPCs\Core\Plugin\Quote\Model\QuoteRepository'
+		/>
+	</type>
 <!-- 2019-09-25 -->
 	<type name='Amazon\Payment\Observer\AddAmazonButton'>
 		<plugin

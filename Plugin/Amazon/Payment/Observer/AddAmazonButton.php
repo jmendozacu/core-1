@@ -12,7 +12,7 @@ final class AddAmazonButton {
 	 * @param Ob $ob
 	 */
 	function aroundExecute(Sb $sb, \Closure $f, Ob $ob) {
-		if (!df_ends_with(dfa($_SERVER, 'HTTP_REFERER'), '/checkout/')) {
+		if (!df_referer_ends_with('/checkout/')) {
 			$f($ob);
 		}
 	}
